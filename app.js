@@ -60,3 +60,12 @@ const Cat = mongoose.model('Cat', catSchema);
     //   }
     // });
 
+Cat.find({}, function(error, item) {
+  if (error) {
+    console.log('Error when finding items! \n');
+    console.log(error);
+  } else {
+    console.log('All items successfully found! \n');
+    console.log(item);
+  }
+});
