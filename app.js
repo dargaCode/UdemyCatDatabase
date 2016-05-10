@@ -20,3 +20,43 @@ const catSchema = new mongoose.Schema({
 
 const Cat = mongoose.model('Cat', catSchema);
 
+// MAIN
+
+// TWO ALTERNATE WAYS TO CREATE CATS
+
+  // OPTION 1
+
+    // const newCat = new Cat({
+    //   name: 'Amici',
+    //   age: 2,
+    //   breed: 'American Short-Hair',
+    //   color: 'White'
+    // });
+
+    // newCat.save(function(error, item) {
+    //   if(error) {
+    //     console.log('Something went wrong \n');
+    //     console.log(error);
+    //   } else {
+    //     console.log('Item was successfully saved! \n');
+    //     console.log(item);
+    //   }
+    // });
+
+  // OPTION 2
+
+    // Cat.create({
+    //   name: 'Cassie',
+    //   age: 13,
+    //   breed: 'Birman',
+    //   color: 'Tan'
+    // }, function(error, item) {
+    //   if(error) {
+    //     console.log('Cat creation failed! \n');
+    //     console.log(err);
+    //   } else {
+    //     console.log('Cat creation succeeded! \n');
+    //     console.log(item);
+    //   }
+    // });
+
