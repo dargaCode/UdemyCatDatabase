@@ -5,3 +5,8 @@
   <li>a cat named <?= cat ?></li>
 
 <? }); ?>
+
+<form action="/addNewCat" method="POST">
+  <input name="catName" type="text" placeholder="Cat name"></input>
+  <button>Add new cat!</button>
+</form>
