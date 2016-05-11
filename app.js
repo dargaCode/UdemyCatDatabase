@@ -20,6 +20,9 @@ app.use(bodyParser.urlencoded({
 
 // CONSTANTS
 
+const PORT_NUM = 3000;
+const SERVER_MSG = 'Cat App server is now listening on port ' + PORT_NUM;
+
 const catSchema = new mongoose.Schema({
   name: String,
   age: Number,
@@ -31,8 +34,8 @@ const Cat = mongoose.model('Cat', catSchema);
 
 // SERVER
 
-app.listen(3000, function() {
-  console.log("Cat App server is now running!");
+app.listen(process.env.PORT || 3000, function() {
+  console.log(SERVER_MSG);
 });
 
 // ROUTES
