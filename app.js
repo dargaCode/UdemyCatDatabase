@@ -45,6 +45,7 @@ app.get('/', function(request, response) {
     if (error) {
       console.log('Error when finding items! \n');
       console.log(error);
+      request.send(error);
     } else {
       console.log('All items successfully found! \n');
       console.log(dbSearchResults);
@@ -75,6 +76,7 @@ app.post('/addNewCat', function(request, response) {
     if (error) {
       console.log('DB addition failed!');
       console.log(error);
+      response.send(error);
     } else {
       console.log('Cat successfully added!');
       console.log(createdCat);
