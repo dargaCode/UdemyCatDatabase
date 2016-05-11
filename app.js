@@ -3,6 +3,10 @@
 
 // DEPENDENCIES
 
+const express = require('express');
+const app = express();
+const ejs = require('ejs');
+const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
 // SETTINGS
@@ -19,6 +23,22 @@ const catSchema = new mongoose.Schema({
 });
 
 const Cat = mongoose.model('Cat', catSchema);
+
+// SERVER
+
+app.listen(3000, function() {
+  console.log("Cat App server is now running!");
+});
+
+// ROUTES
+
+app.get('/', function(request, response) {
+  response.send('I am a cat app');
+});
+
+
+
+
 
 // MAIN
 
