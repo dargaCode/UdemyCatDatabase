@@ -11,6 +11,8 @@ const mongoose = require('mongoose');
 
 // SETTINGS
 
+app.set('view engine', 'ejs');
+ejs.delimiter = '?';
 mongoose.connect('mongodb://localhost/cat_app');
 
 // CONSTANTS
@@ -33,7 +35,10 @@ app.listen(3000, function() {
 // ROUTES
 
 app.get('/', function(request, response) {
-  response.send('I am a cat app');
+  const catList = ['pearl','orion', 'amici', 'cassie'];
+  response.render('cats', {
+    catList: catList
+  });
 });
 
 
