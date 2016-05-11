@@ -59,49 +59,29 @@ app.get('/', function(request, response) {
 });
 
 app.post('/addNewCat', function(request, response) {
-  const newCatName = request.body.catName
-  catList.push(newCatName);
-  response.redirect('/');
+  const newCatName = request.body.catName;
+  const newCatAge = request.body.catAge;
+  const newCatBreed = request.body.catBreed;
+  const newCatColor = request.body.catColor;
+
+  const newCat = {
+    name: newCatName,
+    age: newCatAge,
+    breed: newCatBreed,
+    color: newCatColor,
+  };
+
+  Cat.create(newCat, function(error, createdCat) {
+    if (error) {
+      console.log('DB addition failed!');
+      console.log(error);
+    } else {
+      console.log('Cat successfully added!');
+      console.log(createdCat);
+
+      catList.push(newCatName);
+      response.redirect('/');
+    }
+  });
+
 });
-
-
-
-// MAIN
-
-// TWO ALTERNATE WAYS TO CREATE CATS
-
-  // OPTION 1
-
-    // const newCat = new Cat({
-    //   name: 'Amici',
-    //   age: 2,
-    //   breed: 'American Short-Hair',
-    //   color: 'White'
-    // });
-
-    // newCat.save(function(error, item) {
-    //   if(error) {
-    //     console.log('Something went wrong \n');
-    //     console.log(error);
-    //   } else {
-    //     console.log('Item was successfully saved! \n');
-    //     console.log(item);
-    //   }
-    // });
-
-  // OPTION 2
-
-    // Cat.create({
-    //   name: 'Cassie',
-    //   age: 13,
-    //   breed: 'Birman',
-    //   color: 'Tan'
-    // }, function(error, item) {
-    //   if(error) {
-    //     console.log('Cat creation failed! \n');
-    //     console.log(err);
-    //   } else {
-    //     console.log('Cat creation succeeded! \n');
-    //     console.log(item);
-    //   }
-    // });
