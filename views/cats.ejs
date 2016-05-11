@@ -1,8 +1,8 @@
 <h1>LIST SOME CATS</h1>
 
-<? catList.forEach(function(cat) { ?>
+<? dbCatList.forEach(function(cat) { ?>
 
-  <li>a cat named <?= cat ?></li>
+  <li>a cat named <?= cat.name ?></li>
 
 <? }); ?>
 
@@ -13,9 +13,3 @@
   <input name="catColor" type="text" placeholder="Cat color"></input>
   <button>Add new cat!</button>
 </form>
-
-<? dbCatList.forEach(function(cat) { ?>
-
-  <li>a cat named <?= cat.name ?></li>
-
-<? }); ?>

@@ -29,8 +29,6 @@ const catSchema = new mongoose.Schema({
 
 const Cat = mongoose.model('Cat', catSchema);
 
-const catList = ['pearl','orion', 'amici', 'cassie'];
-
 // SERVER
 
 app.listen(3000, function() {
@@ -51,7 +49,6 @@ app.get('/', function(request, response) {
       console.log(dbSearchResults);
 
       response.render('cats', {
-        catList: catList,
         dbCatList: dbSearchResults
       });
     }
@@ -81,7 +78,6 @@ app.post('/addNewCat', function(request, response) {
       console.log('Cat successfully added!');
       console.log(createdCat);
 
-      catList.push(newCatName);
       response.redirect('/');
     }
   });
