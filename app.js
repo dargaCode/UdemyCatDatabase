@@ -14,6 +14,9 @@ const mongoose = require('mongoose');
 app.set('view engine', 'ejs');
 ejs.delimiter = '?';
 mongoose.connect('mongodb://localhost/cat_app');
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 
 // CONSTANTS
 
@@ -26,6 +29,8 @@ const catSchema = new mongoose.Schema({
 
 const Cat = mongoose.model('Cat', catSchema);
 
+const catList = ['pearl','orion', 'amici', 'cassie'];
+
 // SERVER
 
 app.listen(3000, function() {
@@ -35,13 +40,16 @@ app.listen(3000, function() {
 // ROUTES
 
 app.get('/', function(request, response) {
-  const catList = ['pearl','orion', 'amici', 'cassie'];
   response.render('cats', {
     catList: catList
   });
 });
 
-
+app.post('/addNewCat', function(request, response) {
+  const newCatName = request.body.catName
+  catList.push(newCatName);
+  response.redirect('/');
+});
 
 
 
