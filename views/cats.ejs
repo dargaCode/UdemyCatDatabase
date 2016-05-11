@@ -1,8 +1,14 @@
-<h1>LIST SOME CATS</h1>
+<h1>Cat Database</h1>
 
 <? dbCatList.forEach(function(cat) { ?>
 
-  <li>a cat named <?= cat.name ?></li>
+  <h3>A cat named <?= cat.name ?></h3>
+
+  <ul>
+    <li>Age: <?= cat.age ?></li>
+    <li>Breed: <?= cat.breed ?></li>
+    <li>Color: <?= cat.color ?></li>
+  </ul>
 
 <? }); ?>
 
