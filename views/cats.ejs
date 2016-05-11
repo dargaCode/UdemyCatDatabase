@@ -10,3 +10,9 @@
   <input name="catName" type="text" placeholder="Cat name"></input>
   <button>Add new cat!</button>
 </form>
+
+<? dbCatList.forEach(function(cat) { ?>
+
+  <li>a cat named <?= cat.name ?></li>
+
+<? }); ?>

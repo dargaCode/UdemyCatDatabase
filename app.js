@@ -40,9 +40,22 @@ app.listen(3000, function() {
 // ROUTES
 
 app.get('/', function(request, response) {
-  response.render('cats', {
-    catList: catList
+
+  Cat.find({}, function(error, dbSearchResults) {
+    if (error) {
+      console.log('Error when finding items! \n');
+      console.log(error);
+    } else {
+      console.log('All items successfully found! \n');
+      console.log(dbSearchResults);
+
+      response.render('cats', {
+        catList: catList,
+        dbCatList: dbSearchResults
+      });
+    }
   });
+
 });
 
 app.post('/addNewCat', function(request, response) {
@@ -92,13 +105,3 @@ app.post('/addNewCat', function(request, response) {
     //     console.log(item);
     //   }
     // });
-
-Cat.find({}, function(error, item) {
-  if (error) {
-    console.log('Error when finding items! \n');
-    console.log(error);
-  } else {
-    console.log('All items successfully found! \n');
-    console.log(item);
-  }
-});
