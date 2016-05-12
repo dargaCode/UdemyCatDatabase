@@ -9,19 +9,11 @@ const ejs = require('ejs');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
-// SETTINGS
-
-app.set('view engine', 'ejs');
-ejs.delimiter = '?';
-mongoose.connect(process.env.DATABASE_URL);
-app.use(bodyParser.urlencoded({
-  extended: true
-}));
-
 // CONSTANTS
 
 const PORT_NUM = 3000;
 const SERVER_MSG = 'Cat App server is now listening on port ' + PORT_NUM;
+const DATABASE_URL = 'mongodb://localhost/cat_app';
 
 const catSchema = new mongoose.Schema({
   name: String,
@@ -31,6 +23,16 @@ const catSchema = new mongoose.Schema({
 });
 
 const Cat = mongoose.model('Cat', catSchema);
+
+// SETTINGS
+
+app.set('view engine', 'ejs');
+ejs.delimiter = '?';
+mongoose.connect(process.env.DATABASE_URL || DATABASE_URL);
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+
 
 // SERVER
 
