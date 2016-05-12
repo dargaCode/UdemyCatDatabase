@@ -13,7 +13,7 @@ const mongoose = require('mongoose');
 
 app.set('view engine', 'ejs');
 ejs.delimiter = '?';
-mongoose.connect('mongodb://localhost/cat_app');
+mongoose.connect(process.env.DATABASE_URL);
 app.use(bodyParser.urlencoded({
   extended: true
 }));
@@ -36,6 +36,7 @@ const Cat = mongoose.model('Cat', catSchema);
 
 app.listen(process.env.PORT || 3000, function() {
   console.log(SERVER_MSG);
+  console.log('DATABASE_URL =', process.env.DATABASE_URL);
 });
 
 // ROUTES
