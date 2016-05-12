@@ -1,21 +1,64 @@
-<h1>Cat Database</h1>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cat Database</title>
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+</head>
+<body>
 
-<? dbCatList.forEach(function(cat) { ?>
 
-  <h3><?= cat.name ?></h3>
+  <div class="jumbotron text-center">
+    <h1>Cat Database</h1>
+  </div>
 
-  <ul>
-    <li>Age: <?= cat.age ?></li>
-    <li>Breed: <?= cat.breed ?></li>
-    <li>Color: <?= cat.color ?></li>
-  </ul>
+  <div class="container" style="width: 225px">
 
-<? }); ?>
 
-<form action="/addNewCat" method="POST">
-  <input name="catName" type="text" placeholder="Cat name"></input>
-  <input name="catAge" type="number" min="0" placeholder="Cat age"></input>
-  <input name="catBreed" type="text" placeholder="Cat breed"></input>
-  <input name="catColor" type="text" placeholder="Cat color"></input>
-  <button>Add new cat!</button>
-</form>
+  <? dbCatList.forEach(function(cat) { ?>
+
+    <h3><?= cat.name ?></h3>
+
+    <ul>
+      <li>Age: <?= cat.age ?></li>
+      <li>Breed: <?= cat.breed ?></li>
+      <li>Color: <?= cat.color ?></li>
+    </ul>
+
+  <? }); ?>
+
+  </div>
+
+  <div class="footer" style="background-color: #eeeeee; margin-top: 40px">
+
+    <div class="container" style="max-width: 450px">
+
+      <h2 class="text-center">Add More Cats</h2>
+      <form action="/addNewCat" method="POST">
+
+        <div class="form-group">
+          <input class="form-control" name="catName" type="text" placeholder="Cat name"></input>
+        </div>
+
+        <div class="form-group">
+          <input class="form-control" name="catAge" type="number" min="0" placeholder="Cat age"></input>
+        </div>
+
+        <div class="form-group">
+          <input class="form-control" name="catBreed" type="text" placeholder="Cat breed"></input>
+        </div>
+
+        <div class="form-group">
+          <input class="form-control" name="catColor" type="text" placeholder="Cat color"></input>
+        </div>
+
+        <div class="form-group">
+          <button class="btn btn-primary btn-block">Add new cat!</button>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+</body>
+</html>
