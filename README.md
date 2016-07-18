@@ -1,4 +1,4 @@
-# Database Test
+# Cat Database
 <strong>Language: HTML/CSS+Bootstrap/JS+Node+Express/MongoDB</strong>
 
 Capture POST request data and save to MongoDB via Mongoose. Load and display DB contents via Mongoose and EJS template.
@@ -9,7 +9,7 @@ Finally, I had to use MongoLab and environment variables to support different da
 
 Getting everything properly installed and configured gave me quite a few problems, so it’s very satisfying to see this all working. 
 
-<a href="http://darga-database-test.herokuapp.com/"><b>Live Webpage</b></a>
+<a href="http://darga-cat-database.herokuapp.com/"><b>Live Webpage</b></a>
 
 <img src ="http://67.media.tumblr.com/c7505cafddd78a0587e406c644631460/tumblr_inline_o73b66D5ZK1tvc5hi_1280.png" width=“500" height="500">
 
