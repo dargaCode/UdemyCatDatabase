@@ -11,7 +11,4 @@ Getting everything properly installed and configured gave me quite a few problem
 
 <a href="http://darga-cat-database.herokuapp.com/"><b>Live Webpage</b></a>
 
-<img src ="http://67.media.tumblr.com/c7505cafddd78a0587e406c644631460/tumblr_inline_o73b66D5ZK1tvc5hi_1280.png" width=“500" height="500">
-
-
-
+<img src ="http://67.media.tumblr.com/c7505cafddd78a0587e406c644631460/tumblr_inline_o73b66D5ZK1tvc5hi_1280.png" width="550">
